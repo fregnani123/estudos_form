@@ -9,10 +9,10 @@ const h1 = document.createElement('h1');
 function verificarCamposPreenchidos() {
     for (const input of inputs) {
         if (input.value.trim() === '') {
-            return false; // Pelo menos um campo está vazio
+            return false; 
         }
     }
-    return true; // Todos os campos estão preenchidos
+    return true; 
 }
 
 form.addEventListener('submit', (event) => {
