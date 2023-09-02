@@ -32,7 +32,12 @@ form.addEventListener('submit', (event) => {
         return li;
     }
 
+    function criaID(){
+     return Math.random()
+    }
+
     const formData = {
+        id: criaID() ,
         nome: inputNome.value,
         cidade: inputCidade.value
     };
