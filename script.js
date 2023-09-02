@@ -3,7 +3,8 @@ const inputNome = document.querySelector('#nome');
 const inputCidade = document.querySelector('#cidade');
 const inputs = document.querySelectorAll('.input')
 const body = document.body;
-const h1 = document.createElement('h1');
+const ul = document.createElement('ul')
+
 
 
 function verificarCamposPreenchidos() {
@@ -25,6 +26,12 @@ form.addEventListener('submit', (event) => {
         console.log('form enviado')
     }
 
+    function criaLI(texto) {
+        const li = document.createElement('li');
+        li.innerHTML = texto;
+        return li;
+    }
+
     const formData = {
         nome: inputNome.value,
         cidade: inputCidade.value
@@ -35,11 +42,12 @@ form.addEventListener('submit', (event) => {
     formPush.push(formData)
    
     formPush.map((dados) => {
-        h1.innerText = dados.cidade;
-        body.appendChild(h1)
+        const li = criaLI(dados.nome);
+        ul.appendChild(li);
     })
+    body.appendChild(ul);
 
-    
+    console.log(formPush)
 
     console.log('Dados do formulário:', JsonData);
 
