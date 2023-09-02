@@ -26,12 +26,27 @@ form.addEventListener('submit', (event) => {
         console.log('form enviado')
     }
 
-    function criaLI(texto) {
+    // function criaLI(texto, id) {
+    //     const li = document.createElement('li');
+    //     li.innerHTML = `${texto} <button data-id="${id}" class="delete-button">Excluir</button>`;
+    //     return li;
+    // } 
+    function criaLI(texto, excluir) {
         const li = document.createElement('li');
-        li.innerHTML = texto;
+        li.innerHTML = `${texto} <button class="delete-button">Excluir</button>`;
+
+        const deleteButton = li.querySelector('.delete-button');
+        deleteButton.addEventListener('click', () => {
+        
+            ul.removeChild(li);
+
+            }
+        );
+
         return li;
     }
 
+    
     function criaID(){
      return Math.random()
     }
@@ -42,6 +57,7 @@ form.addEventListener('submit', (event) => {
         cidade: inputCidade.value
     };
     
+
     const formPush = []
     
     formPush.push(formData)
