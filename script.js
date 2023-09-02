@@ -2,6 +2,8 @@ const form = document.querySelector('#form');
 const inputNome = document.querySelector('#nome');
 const inputCidade = document.querySelector('#cidade');
 const inputs = document.querySelectorAll('.input')
+const body = document.body;
+const h1 = document.createElement('h1');
 
 
 function verificarCamposPreenchidos() {
@@ -27,9 +29,19 @@ form.addEventListener('submit', (event) => {
         nome: inputNome.value,
         cidade: inputCidade.value
     };
+    
+    const formPush = []
+    
+    formPush.push(formData)
+   
+    formPush.map((dados) => {
+        h1.innerText = dados.cidade;
+        body.appendChild(h1)
+    })
 
-    // Exibe os dados no console
-    console.log('Dados do formulário:', formData);
+    
+
+    console.log('Dados do formulário:', JsonData);
 
     inputNome.value = '';
     inputCidade.value = '';
